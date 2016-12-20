@@ -16,12 +16,11 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
-Chef::Resource.send(:include, Homebrew::Mixin)
 
 homebrew_tap 'caskroom/cask'
 
 directory '/Library/Caches/Homebrew/Casks' do
   owner homebrew_owner
-  mode "775"
+  mode '775'
   only_if { ::Dir.exist?('/Library/Caches/Homebrew') }
 end
